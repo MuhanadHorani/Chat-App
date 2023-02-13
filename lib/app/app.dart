@@ -1,4 +1,6 @@
+import 'package:chat_app/pages/home_page.dart';
 import 'package:chat_app/pages/login_page.dart';
+import 'package:chat_app/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -11,7 +13,13 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      routes: {
+        'LoginPage': (context) => const LoginPage(),
+        'HomePage': (context) => const HomePage(),
+        'RegisterPage': (context) => const RegisterPage(),
+      },
+      initialRoute: 'LoginPage',
+      //home: const LoginPage(),
     );
   }
 }

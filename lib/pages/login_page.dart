@@ -64,14 +64,7 @@ class LoginPage extends StatelessWidget {
                   backgroundColor: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const HomePage();
-                      },
-                    ),
-                  );
+                  Navigator.pushNamed(context, 'HomePage');
                 },
                 child: const Text(
                   "Signin",
@@ -98,14 +91,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const RegisterPage();
-                          },
-                        ),
-                      );
+                      Navigator.pushNamed(context, 'RegisterPage');
                     },
                     child: const Text(
                       "Signup",

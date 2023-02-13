@@ -67,14 +67,7 @@ class RegisterPage extends StatelessWidget {
                   backgroundColor: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const LoginPage();
-                      },
-                    ),
-                  );
+                  Navigator.pushNamed(context, 'LoginPage');
                 },
                 child: const Text(
                   "Signin",
@@ -100,7 +93,7 @@ class RegisterPage extends StatelessWidget {
                     width: 16,
                   ),
                   Text(
-                    "Signup",
+                    "Login",
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.blueAccent,
