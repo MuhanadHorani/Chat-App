@@ -1,15 +1,18 @@
-import 'package:chat_app/pages/home_page.dart';
-import 'package:chat_app/pages/register_page.dart';
+import 'package:chat_app/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 import '../wedjets/custem_text_filed.dart';
+import 'home_page.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Register"),
+      ),
       backgroundColor: const Color(0xFF274460),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -68,7 +71,7 @@ class LoginPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const HomePage();
+                        return const LoginPage();
                       },
                     ),
                   );
@@ -85,34 +88,22 @@ class LoginPage extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     "don't have account?",
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     width: 16,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const RegisterPage();
-                          },
-                        ),
-                      );
-                    },
-                    child: const Text(
-                      "Signup",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.blueAccent,
-                      ),
+                  Text(
+                    "Signup",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.blueAccent,
                     ),
                   )
                 ],
