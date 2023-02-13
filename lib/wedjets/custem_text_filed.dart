@@ -8,23 +8,20 @@ class CustemTextFiled extends StatelessWidget {
   final String hintText;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextField(
-        decoration: InputDecoration(
-            hintText: hintText,
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-              color: Colors.white,
-            )),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(
-              color: Colors.white,
-            )),
-            hintStyle: TextStyle(
-              color: Colors.white,
-            )),
-      ),
+    return TextField(
+      decoration: InputDecoration(
+          hintText: hintText,
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+            color: Colors.white,
+          )),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(
+            color: Colors.white,
+          )),
+          hintStyle: TextStyle(
+            color: Colors.white,
+          )),
     );
   }
 }
