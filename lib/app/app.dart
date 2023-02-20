@@ -14,9 +14,9 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        'LoginPage': (context) => const LoginPage(),
+        'LoginPage': (context) => LoginPage(),
         'HomePage': (context) => const HomePage(),
-        'RegisterPage': (context) => const RegisterPage(),
+        'RegisterPage': (context) => RegisterPage(),
       },
       initialRoute: 'LoginPage',
       //home: const LoginPage(),

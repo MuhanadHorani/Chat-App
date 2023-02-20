@@ -1,25 +1,31 @@
 import 'package:flutter/material.dart';
 
 class CustemTextFiled extends StatelessWidget {
-  const CustemTextFiled({
+  CustemTextFiled({
     Key? key,
     required this.hintText,
+    this.onChange,
   }) : super(key: key);
   final String hintText;
+  Function(String)? onChange;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: (value) {
+        if (value!.isEmpty) return "Required";
+      },
+      onChanged: onChange,
       decoration: InputDecoration(
           hintText: hintText,
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(
             color: Colors.white,
           )),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(
             color: Colors.white,
           )),
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: Colors.white,
           )),
     );
