@@ -7,7 +7,7 @@ import '../helper.dart';
 import '../wedjets/custem_text_filed.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -72,6 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 CustemTextFiled(
                   hintText: 'Password',
+                  obscure: true,
                   onChange: (value) {
                     password = value;
                   },
@@ -91,7 +92,11 @@ class _LoginPageState extends State<LoginPage> {
                         await signInUser();
                         showSnackBarMessge(
                             context, "User Logedin successfully");
-                        Navigator.popAndPushNamed(context, 'HomePage');
+                        Navigator.popAndPushNamed(
+                          context,
+                          'HomePage',
+                          arguments: email,
+                        );
                       } on FirebaseAuthException catch (ex) {
                         if (ex.code == 'weake-password') {
                           showSnackBarMessge(context,

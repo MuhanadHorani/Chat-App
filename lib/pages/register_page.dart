@@ -1,5 +1,6 @@
 //import 'package:chat_app/pages/login_page.dart';
-import 'package:chat_app/pages/home_page.dart';
+//import 'package:chat_app/pages/home_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 //import 'package:firebase_core/firebase_core.dart';
@@ -19,6 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
   String? email;
 
   String? password;
+  CollectionReference user = FirebaseFirestore.instance.collection('user');
 
   GlobalKey<FormState> formkey = GlobalKey();
 
@@ -96,8 +98,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       try {
                         var auth = FirebaseAuth.instance;
                         await registerUser();
+                        user.add({
+                          'email': email,
+                          'password': password,
+                        });
                         showSnackBarMessge(context, "User added successfully");
-                        Navigator.popAndPushNamed(context, 'LoginPage');
+
+                        Navigator.popAndPushNamed(context, 'HomePage',
+                            arguments: email);
                       } on FirebaseAuthException catch (ex) {
                         if (ex.code == 'weake-password') {
                           showSnackBarMessge(context,
